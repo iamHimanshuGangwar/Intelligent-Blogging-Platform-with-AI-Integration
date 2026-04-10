@@ -1,0 +1,91 @@
+{
+  "nav": {
+    "home": "Home",
+    "blog": "Blog",
+    "careers": "Careers",
+    "community": "Community",
+    "forum": "Forum",
+    "innovation": "Innovation",
+    "jobs": "Jobs",
+    "pricing": "Pricing",
+    "about": "About",
+    "login": "Login",
+    "signup": "Sign up",
+    "dashboard": "Dashboard",
+    "logout": "Logout"
+  },
+  "hero": {
+    "badge": "AI-Powered Platform",
+    "title": "Where Intelligence Meets Journalism",
+    "subtitle": "A premium digital ecosystem powered by generative AI. Discover insights, advance your career, and connect with a thriving community.",
+    "cta_primary": "Start Reading",
+    "cta_secondary": "Explore Features",
+    "stat_articles": "Articles Published",
+    "stat_users": "Active Users",
+    "stat_ai": "AI-Generated Insights"
+  },
+  "auth": {
+    "sign_in": "Sign in",
+    "sign_up": "Create account",
+    "email": "Email address",
+    "password": "Password",
+    "forgot_password": "Forgot password?",
+    "or": "or",
+    "continue_with": "Continue with {{provider}}",
+    "no_account": "Don't have an account?",
+    "have_account": "Already have an account?",
+    "verify_email": "Verify your email",
+    "otp_sent": "We sent a 6-digit code to {{email}}",
+    "enter_code": "Enter verification code",
+    "resend_code": "Resend code"
+  },
+  "blog": {
+    "read_more": "Read more",
+    "published": "Published",
+    "by": "by",
+    "comments": "Comments",
+    "likes": "Likes",
+    "share": "Share",
+    "ai_generated": "AI Generated",
+    "no_posts": "No posts found",
+    "search_placeholder": "Search articles…",
+    "loading": "Loading posts…"
+  },
+  "dashboard": {
+    "welcome": "Welcome back, {{name}}",
+    "my_posts": "My Posts",
+    "resume": "Resume",
+    "settings": "Settings",
+    "notifications": "Notifications",
+    "analytics": "Analytics"
+  },
+  "common": {
+    "loading": "Loading…",
+    "error": "Something went wrong",
+    "retry": "Try again",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "submit": "Submit",
+    "close": "Close",
+    "confirm": "Confirm",
+    "search": "Search",
+    "filter": "Filter",
+    "clear": "Clear",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "view_all": "View all",
+    "new": "New"
+  },
+  "errors": {
+    "required": "This field is required",
+    "invalid_email": "Please enter a valid email address",
+    "min_length": "Must be at least {{min}} characters",
+    "max_length": "Must be at most {{max}} characters",
+    "not_found": "Page not found",
+    "unauthorized": "You must be signed in to view this page",
+    "forbidden": "You don't have permission to access this"
+  }
+}

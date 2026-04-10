@@ -1,0 +1,244 @@
+# Cursor IDE Rules for AiBlog Project
+
+You are a coding assistant for the AiBlog project - an AI-powered blogging and career platform built with Next.js 14, TypeScript, and Tailwind CSS.
+
+## Project Context
+
+**Name**: AiBlog - Career Development + Blogging Platform
+**Tech Stack**: Next.js 14 (App Router), React 19, TypeScript, Tailwind CSS 4.0, Framer Motion, Lucide React
+**Style**: Modern, glassmorphic UI with Material Design 3 inspiration
+**Working Directory**: `C:\Users\acer\ADVANCE AI POWERED BLOG & CARRER PLATEFORM\aiblog\`
+
+## Code Style & Standards
+
+### TypeScript Rules
+- Always use `strict: true` mode
+- Create interfaces for all component props: `interface ComponentProps { ... }`
+- Export component interfaces as types
+- Use type annotations for function returns
+- No `any` type - use `unknown` and narrow types instead
+
+### React & Next.js Rules
+- Use Server Components by default
+- Add `"use client"` directive only for interactive components
+- Use App Router exclusively (no Pages Router)
+- Fetch data in Server Components when possible
+- Implement metadata in layout.tsx for SEO
+
+### Component Rules
+- Functional components only (no class components)
+- Components in `/components` folder with .tsx extension
+- One component per file
+- Props interface pattern: `interface ComponentProps { ... }`
+- Export component as default export
+
+### Styling Rules
+- Use Tailwind CSS utility classes exclusively
+- Never create separate CSS files (use globals.css for global styles only)
+- Apply dark mode with `dark:` prefix
+- Use semantic color variables from tailwind.config.ts
+- Mobile-first responsive design: base → `md:` → `lg:` → `xl:`
+
+### Naming Conventions
+- Components: `PascalCase.tsx` (e.g., `PostCard.tsx`)
+- Pages: `page.tsx` (Next.js convention)
+- Utilities: `camelCase.ts` (e.g., `formatDate.ts`)
+- CSS Classes: kebab-case (e.g., `glass-panel`)
+- Variables/Functions: camelCase (e.g., `handleClick`)
+
+## Architecture Patterns
+
+### State Management
+```typescript
+// Use React Context API via AppContext
+import { useApp } from "@/context/AppContext";
+
+export default function Component() {
+  const { activeNav, setActiveNav, isDarkMode, setIsDarkMode } = useApp();
+  // Implementation...
+}
+```
+
+### Component Structure
+```typescript
+"use client"; // Only if interactive
+
+import { ReactNode } from "react";
+
+interface ComponentProps {
+  title: string;
+  children: ReactNode;
+  variant?: "primary" | "secondary";
+}
+
+export default function Component({ title, children, variant = "primary" }: ComponentProps) {
+  return (
+    <div className={`glass-panel ${variant === "primary" ? "bg-primary" : ""}`}>
+      <h2>{title}</h2>
+      {children}
+    </div>
+  );
+}
+```
+
+### Layout Pattern
+```typescript
+// app/layout.tsx
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "AiBlog",
+  description: "AI-powered blogging platform",
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en" className="dark" suppressHydrationWarning>
+      <body>{children}</body>
+    </html>
+  );
+}
+```
+
+## File Organization
+
+```
+aiblog/
+├── app/                        # Next.js App Router
+│   ├── layout.tsx             # Root layout
+│   ├── page.tsx               # Home page
+│   ├── globals.css            # Global styles
+│   ├── dashboard/
+│   │   └── page.tsx
+│   ├── editor/
+│   │   └── page.tsx
+│   └── community/
+│       └── page.tsx
+├── components/                 # Reusable components
+│   ├── TopNavBar.tsx
+│   ├── SideNavBar.tsx
+│   ├── PostCard.tsx
+│   ├── StatCard.tsx
+│   └── AIAssistantSidebar.tsx
+├── context/                    # State management
+│   └── AppContext.tsx
+├── types/                      # (Future) TypeScript definitions
+├── utils/                      # (Future) Utility functions
+├── tailwind.config.ts          # Tailwind configuration
+├── tsconfig.json               # TypeScript configuration
+├── next.config.ts              # Next.js configuration
+└── package.json                # Dependencies
+```
+
+## Key Color Palette
+
+From `tailwind.config.ts`:
+```
+Primary Blue: #85adff
+Secondary Purple: #c180ff
+Deep Navy (bg): #0e0e0e
+Surface Dark: #1a1a1a
+Surface Container: #262626
+Surface Light: #3a3a3a
+```
+
+## Font System
+
+- **Headings (Manrope)**: sizes h1-h6
+- **Body (Inter)**: Base 14px for labels, 16px for body
+- Access via CSS variables: `var(--font-manrope)`, `var(--font-inter)`
+
+## Common Tasks
+
+### Adding a New Page
+1. Create folder in `app/` (e.g., `app/newpage/`)
+2. Create `page.tsx` inside
+3. Add `"use client"` if component is interactive
+4. Import layout components (TopNavBar, SideNavBar)
+5. Wrap with proper Tailwind classes for layout
+
+### Creating a New Component
+1. Create file in `components/` (e.g., `components/NewComponent.tsx`)
+2. Define Props interface
+3. Implement with Tailwind classes
+4. Export as default
+5. Import in pages/components as needed
+
+### Updating Global Styles
+1. Only edit `app/globals.css`
+2. Add to appropriate `@layer` (base, components, utilities)
+3. Use Tailwind's `@apply` for reusable classes
+
+### Using Context State
+1. Import: `import { useApp } from "@/context/AppContext"`
+2. Call hook: `const { activeNav, setActiveNav } = useApp()`
+3. Update state: `setActiveNav("new-value")`
+
+## Responsive Design Guidelines
+
+- **Base (Mobile)**: Default styles, single column
+- **md (768px+)**: Tablet layout, 2-3 column grids
+- **lg (1024px+)**: Desktop layout, sidebars visible, 3+ column grids
+- **xl (1280px+)**: Full desktop experience
+
+Example:
+```typescript
+<div className="grid grid-cols-12 gap-4">
+  <div className="col-span-12 md:col-span-4 lg:col-span-3">Sidebar</div>
+  <div className="col-span-12 md:col-span-8 lg:col-span-6">Content</div>
+  <div className="col-span-12 lg:col-span-3">Right Panel</div>
+</div>
+```
+
+## Performance Best Practices
+
+✅ **Do**:
+- Use `next/image` for images (lazy loading, optimization)
+- Use `next/font` for custom fonts (like we did)
+- Lazy load Framer Motion animations
+- Code split with dynamic imports
+- Use Server Components for non-interactive parts
+
+❌ **Don't**:
+- Import entire libraries when you need one function
+- Create inline styles
+- Use CSS-in-JS solutions (we use Tailwind)
+- Prop drill when you can use Context
+- Create circular dependencies
+
+## Debugging Tips
+
+### TypeScript Errors
+- Check `tsconfig.json` strict mode settings
+- Verify all function return types
+- Use mapped types for complex props
+
+### Styling Issues
+- Inspect in DevTools to see generated Tailwind classes
+- Check dark mode class on html element
+- Verify color values in `tailwind.config.ts`
+
+### Performance Issues
+- Use React DevTools Profiler
+- Check Lighthouse scores
+- Use `next/image` for all images
+- Implement code splitting with dynamic()
+
+## Testing & Quality
+
+- TypeScript strict mode enforced
+- ESLint configured for code quality
+- Prettier auto-formats code (if configured)
+- No console errors or warnings
+
+## Deployment Ready
+
+- Built with Next.js for optimal server-side rendering
+- Vercel-ready deployment
+- Environment variables: `.env.local` (not committed)
+- No hardcoded API keys or secrets
+
+---
+
+**Last Updated**: March 2026
+**Maintained For**: AiBlog v1.0.0

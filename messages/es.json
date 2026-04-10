@@ -1,0 +1,91 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "blog": "Blog",
+    "careers": "Empleos",
+    "community": "Comunidad",
+    "forum": "Foro",
+    "innovation": "Innovación",
+    "jobs": "Trabajos",
+    "pricing": "Precios",
+    "about": "Acerca de",
+    "login": "Iniciar sesión",
+    "signup": "Registrarse",
+    "dashboard": "Panel",
+    "logout": "Cerrar sesión"
+  },
+  "hero": {
+    "badge": "Plataforma con IA",
+    "title": "Donde la Inteligencia Encuentra el Periodismo",
+    "subtitle": "Un ecosistema digital premium impulsado por IA generativa. Descubre ideas, avanza en tu carrera y conéctate con una comunidad próspera.",
+    "cta_primary": "Comenzar a Leer",
+    "cta_secondary": "Explorar Funciones",
+    "stat_articles": "Artículos Publicados",
+    "stat_users": "Usuarios Activos",
+    "stat_ai": "Perspectivas con IA"
+  },
+  "auth": {
+    "sign_in": "Iniciar sesión",
+    "sign_up": "Crear cuenta",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "forgot_password": "¿Olvidaste tu contraseña?",
+    "or": "o",
+    "continue_with": "Continuar con {{provider}}",
+    "no_account": "¿No tienes cuenta?",
+    "have_account": "¿Ya tienes cuenta?",
+    "verify_email": "Verifica tu correo",
+    "otp_sent": "Enviamos un código de 6 dígitos a {{email}}",
+    "enter_code": "Ingresa el código de verificación",
+    "resend_code": "Reenviar código"
+  },
+  "blog": {
+    "read_more": "Leer más",
+    "published": "Publicado",
+    "by": "por",
+    "comments": "Comentarios",
+    "likes": "Me gusta",
+    "share": "Compartir",
+    "ai_generated": "Generado por IA",
+    "no_posts": "No se encontraron artículos",
+    "search_placeholder": "Buscar artículos…",
+    "loading": "Cargando artículos…"
+  },
+  "dashboard": {
+    "welcome": "Bienvenido de nuevo, {{name}}",
+    "my_posts": "Mis Publicaciones",
+    "resume": "Currículum",
+    "settings": "Configuración",
+    "notifications": "Notificaciones",
+    "analytics": "Análisis"
+  },
+  "common": {
+    "loading": "Cargando…",
+    "error": "Algo salió mal",
+    "retry": "Intentar de nuevo",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "submit": "Enviar",
+    "close": "Cerrar",
+    "confirm": "Confirmar",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "clear": "Limpiar",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "view_all": "Ver todo",
+    "new": "Nuevo"
+  },
+  "errors": {
+    "required": "Este campo es obligatorio",
+    "invalid_email": "Por favor ingresa un correo válido",
+    "min_length": "Debe tener al menos {{min}} caracteres",
+    "max_length": "Debe tener como máximo {{max}} caracteres",
+    "not_found": "Página no encontrada",
+    "unauthorized": "Debes iniciar sesión para ver esta página",
+    "forbidden": "No tienes permiso para acceder a esto"
+  }
+}
