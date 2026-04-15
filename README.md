@@ -4,6 +4,11 @@ A full-stack, production-grade AI-powered editorial platform built with Next.js 
 
 ---
 
+## Snapshot
+<img width="468" height="218" alt="Image" src="https://github.com/user-attachments/assets/ce1e8975-d985-4eee-ba44-461f71d184cd" />
+
+---
+
 ## Table of Contents
 
 1. [Overview](#overview)
