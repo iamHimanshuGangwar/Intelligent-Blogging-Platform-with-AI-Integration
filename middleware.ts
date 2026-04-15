@@ -19,8 +19,12 @@ const isAdminRoute = createRouteMatcher([
 ]);
 
 export default clerkMiddleware(async (auth, req: NextRequest) => {
-  // Skip redirects for API routes and static assets
-  if (req.nextUrl.pathname.startsWith("/api") || req.nextUrl.pathname.startsWith("/_next")) {
+  // Skip redirects for API routes, static assets, and the Sentry monitoring tunnel
+  if (
+    req.nextUrl.pathname.startsWith("/api") ||
+    req.nextUrl.pathname.startsWith("/_next") ||
+    req.nextUrl.pathname.startsWith("/monitoring")
+  ) {
     return NextResponse.next();
   }
 

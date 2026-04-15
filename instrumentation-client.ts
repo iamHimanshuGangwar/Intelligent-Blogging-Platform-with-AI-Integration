@@ -3,8 +3,11 @@ import * as Sentry from '@sentry/nextjs';
 Sentry.init({
   dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
 
+  // Use the tunnel route defined in next.config.ts to bypass ad-blockers
+  tunnel: '/monitoring',
+
   // Only enable in production to avoid noise in dev
-  enabled: process.env.NODE_ENV === 'production',
+  enabled: true, // Set to true temporarily to test the tunnel in development
 
   // Capture 10% of transactions for performance monitoring
   tracesSampleRate: 0.1,

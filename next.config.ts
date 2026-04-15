@@ -39,14 +39,14 @@ const nextConfig: NextConfig = {
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "img-src 'self' data: blob: https: http:",
               "font-src 'self' https://fonts.gstatic.com",
-              "connect-src 'self' https://*.supabase.co https://*.clerk.accounts.dev https://clerk.aiblog.dev https://*.sentry.io https://*.upstash.io wss://*.supabase.co",
+              "connect-src 'self' https://*.supabase.co https://*.clerk.accounts.dev https://clerk.aiblog.dev https://*.upstash.io wss://*.supabase.co",
               "frame-src 'self' https://challenges.cloudflare.com https://*.clerk.accounts.dev",
               "worker-src 'self' blob:",
               "object-src 'none'",
               "base-uri 'self'",
               "form-action 'self'",
               "frame-ancestors 'none'",
-              "upgrade-insecure-requests",
+              process.env.NODE_ENV === 'production' ? "upgrade-insecure-requests" : "",
             ].join("; "),
           },
           { key: "X-Content-Type-Options", value: "nosniff" },
@@ -83,9 +83,9 @@ export default withSentryConfig(withNextIntl(nextConfig), {
   project: process.env.SENTRY_PROJECT,
   // Suppress source map upload logs during build
   silent: true,
-  // Upload source maps in CI only (not in dev)
+  // Always generate source maps in development for better debugging
   sourcemaps: {
-    disable: process.env.NODE_ENV !== 'production',
+    disable: false,
   },
   // Automatically tree-shake Sentry logger statements
   webpack: {
