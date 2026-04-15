@@ -11,7 +11,6 @@ export const authService = {
         emailRedirectTo: `${window.location.origin}/auth/callback`,
       },
     });
-
     if (error) throw error;
     return data;
   },
