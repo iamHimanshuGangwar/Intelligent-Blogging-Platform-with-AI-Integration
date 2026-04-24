@@ -10,7 +10,7 @@ async function main() {
     console.error('Usage: node scripts/apply-migration.js <migration-file>');
     process.exit(1);
   }
-
+  
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
