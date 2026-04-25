@@ -127,7 +127,7 @@ export function AdminMetricsPanel({
           </CardContent>
         </Card>
       )}
-
+      
       {/* Top Followed Users */}
       {topFollowedUsers.length > 0 && (
         <Card className="bg-zinc-900/50 border-zinc-800">
