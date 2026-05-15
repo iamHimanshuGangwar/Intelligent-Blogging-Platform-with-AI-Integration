@@ -61,7 +61,6 @@ export default function CareerPathVisualizer() {
               <p className="text-lg font-bold">{stats.avgLevelUpTime}</p>
             </div>
           </div>
-
           <div className="absolute bottom-10 right-10 p-3 bg-surface-container-high rounded-lg border border-white/5 flex items-center gap-3">
             <div className="w-1 h-8 bg-secondary rounded-full"></div>
             <div>
